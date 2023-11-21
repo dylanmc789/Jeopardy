@@ -1,6 +1,6 @@
 <h>Dylan's Jeopardy</h>
 <br><a href="https://dylanmc789.github.io/Jeopardy/jeopardy-2023-round1.html">2023 Round 1</a>
-<br><a href="https://dylanmc789.github.io/Jeopardy/jeopardy-2023-round2.html">2022 Round 3</a>
+<br><a href="https://dylanmc789.github.io/Jeopardy/jeopardy-2023-round2.html">2022 Round 2</a>
 <br><a href="https://dylanmc789.github.io/Jeopardy/jeopardy-2022-round1.html">2022 Round 1</a>
 <br><a href="https://dylanmc789.github.io/Jeopardy/jeopardy-2022-round2.html">2022 Round 2</a>
 <br><a href="https://dylanmc789.github.io/Jeopardy/jeopardy-2021-2-round1.html">2021 Game 2 Round 1</a>
