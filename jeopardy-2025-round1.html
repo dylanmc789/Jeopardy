@@ -2053,6 +2053,43 @@ function mini(){
     }
 
     modal.show = function(cell, no_push_state){
+		// ===== DAILY DOUBLE / DAILY TROUBLE SPLASH =====
+if (cell.classList.contains("daily-double")) {
+		
+		    var row = parseInt(cell.getAttribute("data-row"), 10);
+		
+		    // Choose which overlay to show
+		    var overlayId = row >= 4
+		        ? "daily-trouble-overlay"
+		        : "daily-double-overlay";
+		
+		    var overlay = document.getElementById(overlayId);
+		
+		    overlay.style.display = "flex";
+		
+		    function proceedDD() {
+		        overlay.style.display = "none";
+		        document.removeEventListener("click", proceedDD);
+		        document.removeEventListener("keydown", keyHandler);
+		
+		        // Auto-reveal after splash
+		        setTimeout(function () {
+		            modal.reveal();
+		        }, 300);
+		    }
+		
+		    function keyHandler(e) {
+		        if (e.keyCode === 32 || e.keyCode === 13) { // SPACE or ENTER
+		            e.preventDefault();
+		            proceedDD();
+		        }
+		    }
+		
+		    document.addEventListener("click", proceedDD);
+		    document.addEventListener("keydown", keyHandler);
+		}
+
+
         removeClass(".active-question", "active-question");
         cell.classList.add("active-question");
 
@@ -2153,19 +2190,8 @@ function mini(){
             div_modal.style.borderWidth = 0;
             div_modal.style.transform = "translate(0px, 0px) scale(1)"
         }, 50);
-		// ===== DAILY DOUBLE AUTO-REVEAL =====
-			if (cell.classList.contains("daily-double")) {
-			    setTimeout(function () {
-			        modal.reveal();
-			    }, 300);
-			}
-		// Hide answer button on Daily Double
 		var answerBtn = document.getElementById("answer-button");
-		if (answerBtn) {
-		    answerBtn.style.display = cell.classList.contains("daily-double")
-		        ? "none"
-		        : "";
-		}
+
 
 
         modal.is_open = true; // flag for the keyboard event
@@ -2866,7 +2892,7 @@ var x = setInterval(function() {
                 <div class="
                     cell-group
                     grid-cell
-                    daily-double
+                    daily-trouble
                 "
                 role="cell"
                 id="cell-112615134"
@@ -3192,7 +3218,53 @@ pageTracker._trackPageview();
 
 
 
-    
+  <!-- DAILY DOUBLE OVERLAY -->
+<div id="daily-double-overlay"
+     style="
+        display:none;
+        position:fixed;
+        inset:0;
+        background:#000;
+        color:#ffd700;
+        z-index:9999;
+        font-family:Arial, Helvetica, sans-serif;
+        text-align:center;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+        cursor:pointer;
+     ">
+    <div style="font-size:96px; font-weight:bold; letter-spacing:6px;">
+        DAILY DOUBLE
+    </div>
+    <div style="font-size:24px; margin-top:20px; opacity:.8;">
+        Click or press SPACE to continue
+    </div>
+</div>
+
+<!-- DAILY TROUBLE OVERLAY -->
+<div id="daily-trouble-overlay"
+     style="
+        display:none;
+        position:fixed;
+        inset:0;
+        background:#000;
+        color:#ff4444;
+        z-index:9999;
+        font-family:Arial, Helvetica, sans-serif;
+        text-align:center;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+        cursor:pointer;
+     ">
+    <div style="font-size:96px; font-weight:bold; letter-spacing:6px;">
+        DAILY TROUBLE
+    </div>
+    <div style="font-size:24px; margin-top:20px; opacity:.8;">
+        Click or press SPACE to continue
+    </div>
+</div>
 
 
 
