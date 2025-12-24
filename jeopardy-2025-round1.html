@@ -1666,7 +1666,7 @@ function mini(){
                         modal.hide();
                     } else if(e.keyCode == SPACE){
                         e.preventDefault();
-                        modal.reveal();
+                        veal();
                     }
                 } else if(on_cell){
                     if((e.keyCode == ENTER || e.keyCode == SPACE) && clickable){
@@ -2067,11 +2067,9 @@ function mini(){
 		        overlay.style.display = "none";
 		        document.removeEventListener("click", proceedSpecial);
 		        document.removeEventListener("keydown", keyHandler);
+			
 		
-		        // Auto-reveal after splash
-		        setTimeout(function () {
-		            modal.reveal();
-		        }, 300);
+
 		    }
 		
 		    function keyHandler(e) {
