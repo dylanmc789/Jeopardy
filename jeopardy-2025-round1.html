@@ -2054,12 +2054,12 @@ function mini(){
 
     modal.show = function(cell, no_push_state){
 		// ===== DAILY DOUBLE / DAILY TROUBLE SPLASH =====
-if (cell.classList.contains("daily-double")) {
+		var isDailyDouble = cell.classList.contains("daily-double");
+		var isDailyTrouble = cell.classList.contains("daily-trouble");
 		
-		    var row = parseInt(cell.getAttribute("data-row"), 10);
+		if (isDailyDouble || isDailyTrouble) {
 		
-		    // Choose which overlay to show
-		    var overlayId = row >= 4
+		    var overlayId = isDailyTrouble
 		        ? "daily-trouble-overlay"
 		        : "daily-double-overlay";
 		
@@ -2067,9 +2067,9 @@ if (cell.classList.contains("daily-double")) {
 		
 		    overlay.style.display = "flex";
 		
-		    function proceedDD() {
+		    function proceedSpecial() {
 		        overlay.style.display = "none";
-		        document.removeEventListener("click", proceedDD);
+		        document.removeEventListener("click", proceedSpecial);
 		        document.removeEventListener("keydown", keyHandler);
 		
 		        // Auto-reveal after splash
@@ -2081,13 +2081,14 @@ if (cell.classList.contains("daily-double")) {
 		    function keyHandler(e) {
 		        if (e.keyCode === 32 || e.keyCode === 13) { // SPACE or ENTER
 		            e.preventDefault();
-		            proceedDD();
+		            proceedSpecial();
 		        }
 		    }
-		
-		    document.addEventListener("click", proceedDD);
-		    document.addEventListener("keydown", keyHandler);
-		}
+
+    document.addEventListener("click", proceedSpecial);
+    document.addEventListener("keydown", keyHandler);
+}
+
 
 
         removeClass(".active-question", "active-question");
