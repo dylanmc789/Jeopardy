@@ -2125,6 +2125,40 @@ function mini(){
     }
 
     modal.show = function(cell, no_push_state){
+		// ===== DAILY DOUBLE / DAILY TROUBLE SPLASH =====
+		var isDailyDouble = cell.classList.contains("daily-double");
+		var isDailyTrouble = cell.classList.contains("daily-trouble");
+		
+		if (isDailyDouble || isDailyTrouble) {
+		
+		    var overlayId = isDailyTrouble
+		        ? "daily-trouble-overlay"
+		        : "daily-double-overlay";
+		
+		    var overlay = document.getElementById(overlayId);
+		
+		    overlay.style.display = "flex";
+		
+		    function proceedSpecial() {
+		        overlay.style.display = "none";
+		        document.removeEventListener("click", proceedSpecial);
+		        document.removeEventListener("keydown", keyHandler);
+
+		    }
+		
+		    function keyHandler(e) {
+		        if (e.keyCode === 32 || e.keyCode === 13) { // SPACE or ENTER
+		            e.preventDefault();
+		            proceedSpecial();
+		        }
+		    }
+		
+		    document.addEventListener("click", proceedSpecial);
+		    document.addEventListener("keydown", keyHandler);
+		}
+
+
+		
         removeClass(".active-question", "active-question");
         cell.classList.add("active-question");
 
@@ -2536,7 +2570,6 @@ function mini(){
                         
                             <div class="cell points">
                                 <div class="cell-inner">800</div>
-								<!--<div class="front answer" tabindex="0">DAILY DOUBLE</div>-->
                                 <div class="front answer" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
 					<audio controls>					  
 					  <source src="/Jeopardy/images/2025/ORCHESTRA COVERS/BOHEMIAN RHAPSODY.mp3" type="audio/mpeg">
@@ -2599,6 +2632,7 @@ function mini(){
 				<div class="
                     cell-group
                     grid-cell
+					daily-trouble
                     
                 "
                 role="cell"
@@ -2612,10 +2646,9 @@ function mini(){
                         
                             <div class="cell points">
                                 <div class="cell-inner">800</div>
-				    <div class="front answer" tabindex="0">DAILY DOUBLE</div>
-                                <div class="back question" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
-								SWIFT CURRENT</div>
-                                <div class="back question" tabindex="0">6</div>
+                                <div class="front answer" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
+								 LONDON, UK</div>
+                                <div class="back question" tabindex="0">19</div>
                             </div>
                         
                     
@@ -2670,7 +2703,7 @@ function mini(){
                                 <div class="cell-inner">1200</div>
                                 <div class="front answer" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
 								<img src="/Jeopardy/images/2025/VIDEO GAME CHARACTERS/MASTER CHIEF.webp" width="640" height="520" allow="autoplay"></div>
-                                <div class="back question" tabindex="0">LAVENDER</div>
+                                <div class="back question" tabindex="0">MASTER CHIEF</div>
                             </div>
                         
                     
@@ -2769,8 +2802,8 @@ function mini(){
                             <div class="cell points">
                                 <div class="cell-inner">1200</div>
                                 <div class="front answer" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
-								LETHBRIDGE</div>
-                                <div class="back question" tabindex="0">2</div>
+								SWIFT CURRENT</div>
+                                <div class="back question" tabindex="0">6</div>
                             </div>
                         
                     
@@ -2799,8 +2832,7 @@ function mini(){
                         
                             <div class="cell points">
                                 <div class="cell-inner">1600</div>
-				    <div class="front answer" tabindex="0">DAILY DOUBLE</div>
-                                <div class="back question" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
+                                <div class="front answer" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
 								HOUSTON, WE HAVE A PROBLEM</div>
                                 <div class="back question" tabindex="0">HOUSTON, WE'VE HAD A PROBLEM</div>
                             </div>
@@ -2811,6 +2843,7 @@ function mini(){
                 <div class="
                     cell-group
                     grid-cell
+					daily-double
                     
                 "
                 role="cell"
@@ -2877,7 +2910,6 @@ function mini(){
                         
                             <div class="cell points">
                                 <div class="cell-inner">1600</div>
-				    <!--<div class="front answer" tabindex="0">DAILY DOUBLE</div>-->
                                 <div class="front answer" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
 								LAST CHRISTMAS</div>
                                 <div class="back question" tabindex="0">1980s </div>
@@ -2889,6 +2921,7 @@ function mini(){
                 <div class="
                     cell-group
                     grid-cell
+					daily-double
                     
                 "
                 role="cell"
@@ -2902,10 +2935,9 @@ function mini(){
                         
                             <div class="cell points">
                                 <div class="cell-inner">1600</div>
-								<!--<div class="front answer" tabindex="0">DAILY DOUBLE</div> -->
                                 <div class="front answer" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
-								<img src="/Jeopardy/images/2025/TREES/magnolia.webp" width="640" height="520" allow="autoplay"></div>
-                                <div class="back question" tabindex="0">MAGNOLIA</div>
+								<img src="/Jeopardy/images/2025/TREES/rubber tree.webp" width="640" height="520" allow="autoplay"></div>
+                                <div class="back question" tabindex="0">RUBBER TREE</div>
                             </div>
                         
                     
@@ -2927,8 +2959,8 @@ function mini(){
                             <div class="cell points">
                                 <div class="cell-inner">1600</div>
                                 <div class="front answer" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
-								SASKATOON</div>
-                                <div class="back question" tabindex="0">7</div>
+								LETHBRIDGE</div>
+                                <div class="back question" tabindex="0">2</div>
                             </div>
                         
                     
@@ -2968,6 +3000,7 @@ function mini(){
                 <div class="
                     cell-group
                     grid-cell
+					daily-trouble
                     
                 "
                 role="cell"
@@ -3007,7 +3040,7 @@ function mini(){
                                 <div class="cell-inner">2000</div>
                                 <div class="front answer" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
 								<audio controls>					  
-					  <source src="images/2025/ORCHESTRA COVERS/Despacito2.mp3" type="audio/mpeg">
+					  <source src="/Jeopardy/images/2025/ORCHESTRA COVERS/Despacito2.mp3" type="audio/mpeg">
 					Your browser does not support the audio element.
 					</audio></div>
                                 <div class="back question" tabindex="0">DESPACITO</div>
@@ -3057,8 +3090,8 @@ function mini(){
                             <div class="cell points">
                                 <div class="cell-inner">2000</div>
                                 <div class="front answer" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
-								<img src="/Jeopardy/images/2025/TREES/rubber tree.webp" width="640" height="520" allow="autoplay"></div>
-                                <div class="back question" tabindex="0">RUBBER TREE</div>
+								<img src="/Jeopardy/images/2025/TREES/magnolia.webp" width="640" height="520" allow="autoplay"></div>
+                                <div class="back question" tabindex="0">MAGNOLIA</div>
                             </div>
                         
                     
@@ -3080,8 +3113,8 @@ function mini(){
                             <div class="cell points">
                                 <div class="cell-inner">2000</div>
                                 <div class="front answer" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
-								LONDON, UK</div>
-                                <div class="back question" tabindex="0">19</div>
+								SASKATOON</div>
+                                <div class="back question" tabindex="0">7</div>
                             </div>
                         
                     
@@ -3176,6 +3209,53 @@ function mini(){
 
 
 
+  <!-- DAILY DOUBLE OVERLAY -->
+<div id="daily-double-overlay"
+     style="
+        display:none;
+        position:fixed;
+        inset:0;
+        background:#000;
+        color:#ffd700;
+        z-index:9999;
+        font-family:Arial, Helvetica, sans-serif;
+        text-align:center;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+        cursor:pointer;
+     ">
+    <div style="font-size:96px; font-weight:bold; letter-spacing:6px;">
+        DAILY DOUBLE
+    </div>
+    <div style="font-size:24px; margin-top:20px; opacity:.8;">
+        Click or press SPACE to continue
+    </div>
+</div>
+
+<!-- DAILY TROUBLE OVERLAY -->
+<div id="daily-trouble-overlay"
+     style="
+        display:none;
+        position:fixed;
+        inset:0;
+        background:#000;
+        color:#ff4444;
+        z-index:9999;
+        font-family:Arial, Helvetica, sans-serif;
+        text-align:center;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+        cursor:pointer;
+     ">
+    <div style="font-size:96px; font-weight:bold; letter-spacing:6px;">
+        DAILY TROUBLE
+    </div>
+    <div style="font-size:24px; margin-top:20px; opacity:.8;">
+        Click or press SPACE to continue
+    </div>
+</div>
 
 
 
