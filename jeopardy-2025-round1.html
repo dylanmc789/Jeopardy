@@ -1027,9 +1027,12 @@ img, iframe {
 .resizing {
     transition:none !important;
 }
-
+.daily-double .cell-inner {
+    color: gold;
+    text-shadow: 0 0 10px black;
+}
             </style>
-            
+
         
             <script type="text/javascript">
                 function removeClass(selector, cls){
@@ -2150,6 +2153,21 @@ function mini(){
             div_modal.style.borderWidth = 0;
             div_modal.style.transform = "translate(0px, 0px) scale(1)"
         }, 50);
+		// ===== DAILY DOUBLE AUTO-REVEAL =====
+			if (cell.classList.contains("daily-double")) {
+			    setTimeout(function () {
+			        modal.reveal();
+			    }, 300);
+			}
+		// Hide answer button on Daily Double
+		var answerBtn = document.getElementById("answer-button");
+		if (answerBtn) {
+		    answerBtn.style.display = cell.classList.contains("daily-double")
+		        ? "none"
+		        : "";
+		}
+
+
         modal.is_open = true; // flag for the keyboard event
         document.querySelectorAll(".grid")[0].setAttribute("aria-hidden", "true");
 
@@ -2621,7 +2639,7 @@ var x = setInterval(function() {
                 <div class="
                     cell-group
                     grid-cell
-                    
+                    daily-double
                 "
                 role="cell"
                 id="cell-112615102"
@@ -2634,8 +2652,7 @@ var x = setInterval(function() {
                         
                             <div class="cell points">
                                 <div class="cell-inner">600</div>
-								<div class="front answer" tabindex="0">DAILY DOUBLE</div>
-                                <div class="back question" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
+                                <div class="front answer" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
 								THIS BOOK SERIES THAT RAN FROM 1963 TO 2015 FEATURES AN ANIMAL THAT HAS AN UNUSUAL COLOR AND SIZE </div>
                                 <div class="back question" tabindex="0">CLIFFORD THE BIG RED DOG</div>
                             </div>
@@ -2849,7 +2866,7 @@ var x = setInterval(function() {
                 <div class="
                     cell-group
                     grid-cell
-                    
+                    daily-double
                 "
                 role="cell"
                 id="cell-112615134"
@@ -2862,8 +2879,7 @@ var x = setInterval(function() {
                         
                             <div class="cell points">
                                 <div class="cell-inner">800</div>
-								<div class="front answer" tabindex="0">DAILY TROUBLE</div>
-                                <div class="back question" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
+                                <div class="front answer" tabindex="0"><iframe src="https://beepmyclock.com/widget/timer" frameborder="0" style="border:1;height:200px;background-color:white" align="right"></iframe><br><br>
 								NAME TWO CONTESTANTS WHO HAVE BEEN BANNED FROM THE SHOW</div>
                                 <div class="back question" tabindex="0"> Dee Nguyen, Turbo Éamkran, Tonya Cooley, Kenny Santucci, Evan Starkman, Camila Nakagawa, and Nia Moore</div>
                             </div>
