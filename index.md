@@ -1,5 +1,8 @@
 <h>Dylan's Jeopardy</h>
+<br><a href="https://dylanmc789.github.io/Jeopardy/jeopardy-2025-round1.html">2025 Round 1</a>
+<br><a href="https://dylanmc789.github.io/Jeopardy/jeopardy-2025-round2.html">2025 Round 2</a>
 <br><a href="https://dylanmc789.github.io/Jeopardy/jeopardy-2024-round1.html">2024 Round 1</a>
+<br><a href="https://dylanmc789.github.io/Jeopardy/jeopardy-2024-round2.html">2024 Round 2</a>
 <br><a href="https://dylanmc789.github.io/Jeopardy/jeopardy-2023-round1.html">2023 Round 1</a>
 <br><a href="https://dylanmc789.github.io/Jeopardy/jeopardy-2023-round2.html">2023 Round 2</a>
 <br><a href="https://dylanmc789.github.io/Jeopardy/jeopardy-2022-round1.html">2022 Round 1</a>
